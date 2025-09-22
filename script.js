@@ -40,8 +40,10 @@ function sendReminders() {
       }).then(() => {
         showNotification(`提醒已发送给 ${user.username}`, "success");
       }).catch(error => {
-        showNotification(`发送失败：${error}`, "error");
-      });
+  console.error("发送失败：", error);
+  alert("发送失败：" + (error.text || "未知错误"));
+});
+
     }
   });
 }
@@ -55,5 +57,6 @@ function showNotification(message, type) {
 }
 
 window.onload = renderUserList;
+
 
 
