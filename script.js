@@ -1,3 +1,24 @@
+emailjs.send(
+  "service_drdj5oh",
+  "template_ytphmej",
+  {
+    to_email: user.email,
+    to_name: user.username,
+    message: `您好，今天是您设置的提醒日，请及时查询水电费账单。`
+  },
+  "50cNXhwRT8aAQTkUP" // Public Key
+)
+.then(() => {
+  showNotification(`提醒已发送给 ${user.username}`, "success");
+})
+.catch(error => {
+  console.error("发送失败：", error);
+  alert("发送失败：" + (error.text || JSON.stringify(error)));
+});
+
+
+
+
 emailjs.init("50cNXhwRT8aAQTkUP");
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -57,6 +78,7 @@ function showNotification(message, type) {
 }
 
 window.onload = renderUserList;
+
 
 
 
