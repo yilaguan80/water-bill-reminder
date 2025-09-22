@@ -1,4 +1,4 @@
-emailjs.init("YOUR_EMAILJS_USER_ID");
+emailjs.init("atwilling");
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -33,7 +33,7 @@ function sendReminders() {
   const today = new Date().getDate();
   users.forEach(user => {
     if (user.reminderDay === today) {
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      emailjs.send("service_drdj5oh", "template_ytphmej", {
         to_email: user.email,
         to_name: user.username,
         message: `您好，今天是您设置的提醒日，请及时查询水电费账单。`
@@ -55,3 +55,4 @@ function showNotification(message, type) {
 }
 
 window.onload = renderUserList;
+
