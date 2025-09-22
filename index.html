@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>水电费提醒系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>💧 水电费提醒系统</h1>
+
+    <div class="form-group">
+      <label><i class="fa fa-user"></i> 用户名</label>
+      <input type="text" id="username" placeholder="请输入用户名">
+    </div>
+
+    <div class="form-group">
+      <label><i class="fa fa-id-card"></i> 用户编号</label>
+      <input type="text" id="userId" placeholder="例如：12345678">
+    </div>
+
+    <div class="form-group">
+      <label><i class="fa fa-envelope"></i> 邮箱地址</label>
+      <input type="email" id="email" placeholder="例如：user@example.com">
+    </div>
+
+    <div class="form-group">
+      <label><i class="fa fa-calendar"></i> 每月提醒日</label>
+      <input type="number" id="reminderDay" min="1" max="31">
+    </div>
+
+    <div class="buttons">
+      <button onclick="addUser()">添加用户</button>
+      <button onclick="sendReminders()">发送提醒</button>
+    </div>
+
+    <h2>📋 用户列表</h2>
+    <ul id="userList"></ul>
+
+    <div id="notification" class="hidden"></div>
+  </div>
+</body>
+</html>
